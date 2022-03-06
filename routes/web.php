@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,17 +14,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function(){
+    return view('welcome');
+    // return "nice";
+});
 
 // Tạo 1 nhóm route với tiền tố customer
 Route::prefix('customer')->group(function () {
 
-    Route::get('index', function () {
-        // Hiển thị danh sách khách hàng
-        return view('modules.customer.index');
-    });
+    Route::get('index', [CustomerController::class, 'index']);
 
     Route::get('create', function () {
         // Hiển thị Form tạo khách hàng
+        return view('modules.customer.create');
     });
 
     Route::post('store', function () {

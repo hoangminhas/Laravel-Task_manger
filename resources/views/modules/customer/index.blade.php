@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Danh sách khách hàng</h1>
-<table border="1">
+<table border="10">
     <thead>
     <tr>
         <th>STT</th>
